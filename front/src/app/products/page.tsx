@@ -1,7 +1,7 @@
-import { productsMock } from "../../../mocks/products";
 import Card from "../../../components/Card/Card";
+import { getProducts } from "../../../services/productServices";
 
-const products = productsMock;
+const products = getProducts();
 
 const page = () => {
   return (

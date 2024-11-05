@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Product } from "../../interfaces/products";
 
 interface CardProps {
@@ -5,7 +6,11 @@ interface CardProps {
 }
 
 const Card = ({ product }: CardProps) => {
-  return <article> {product.name} </article>;
+  return (
+    <Link href={`products/${product.id}`}>
+      <article> {product.name} </article>
+    </Link>
+  );
 };
 
 export default Card;
