@@ -8,7 +8,9 @@ interface CardProps {
 const Card = ({ product }: CardProps) => {
   return (
     <Link href={`products/${product.id}`}>
-      <article> {product.name} </article>
+      <article className="bg-secondary w-full h-20 transition ease-in-out delay-150 hover:scale-105">
+        <h4> {product.name} </h4>
+      </article>
     </Link>
   );
 };

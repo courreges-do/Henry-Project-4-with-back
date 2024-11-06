@@ -1,6 +1,6 @@
-import Card from "../../../../components/Card/Card";
+import Card from "../../../components/Card/Card";
 import { notFound } from "next/navigation";
-import { getProduct } from "../../../../services/productServices";
+import { getProduct } from "../../../services/productServices";
 
 interface PageProps {
   params: {

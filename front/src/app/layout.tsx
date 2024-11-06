@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Nunito, Roboto } from "next/font/google";
-import "../../styles/globals.css";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
+import "./globals.css";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 const primaryFont = Nunito({
   subsets: ["latin"],

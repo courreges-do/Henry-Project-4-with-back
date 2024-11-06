@@ -6,7 +6,7 @@
   --primary-color: #dddddd;
   --secondary-color: #f9f3f3;
   --tertiary-color: #f7d9d9;
-  --quaternary-color: #f25287;
+  --quaternary-color: #d1605e;
 }
 
 body {
@@ -27,11 +27,6 @@ body {
   margin: 0 auto;
   padding: 0 1em;
   min-width: 100vw;
-}
-
-nav,
-footer {
-  background-color: var(--quaternary-color);
 }
 
 footer {
