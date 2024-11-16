@@ -1,11 +1,28 @@
 import { productsMock } from "../mocks/products";
+import { Product } from "@/interfaces/products";
 
-export const getProducts = () => {
-  return productsMock;
+const apiURL = process.env.API_URL || "http://localhost:3001";
+const fallbackMockEnabled = Boolean(process.env.FALLBACK_MOCK) || false;
+
+export const getProducts = async (): Promise<Product[]> => {
+  const res = await fetch(`${apiURL}/products`, { cache: "no-store" })
+    .then((res) => res.json())
+    .catch(() => {
+      return fallbackMockEnabled ? productsMock : [];
+    });
+  return res as Product[];
 };
 
-export const getProduct = (id: number) => {
-  const product = productsMock.filter((product) => product.id === id)[0];
+export const getProduct = async (id: number): Promise<Product> => {
+  const products = await getProducts();
+  const res = products.filter((product) => product.id === id)[0];
 
-  return product;
+  return res;
+};
+
+export const getFeaturedProducts = async (): Promise<Product[]> => {
+  const products = await getProducts();
+  const res = products.slice(0, 3);
+
+  return res;
 };

@@ -1,10 +1,9 @@
-import { productsMock } from "../mocks/products";
 import Card from "../components/Card/Card";
 import Grid from "../components/Grid/Grid";
+import { getFeaturedProducts } from "@/services/productServices";
 
-const featuredProducts = productsMock.slice(0, 3);
-
-const page = () => {
+const page = async () => {
+  const featuredProducts = await getFeaturedProducts();
   return (
     <div>
       <h1>ECOMMERCE</h1>
