@@ -1,15 +1,25 @@
 "use client";
-import { ChangeEvent, useState, FormEvent, useContext } from "react";
+import { ChangeEvent, useState, FormEvent } from "react";
 import { isValid } from "@/helpers/validations";
 import { FormData, FormTouched } from "@/interfaces/forms";
+import { userRegister } from "@/services/userServices";
 import { useRouter } from "next/navigation";
-import { userLogin } from "@/services/userServices";
-import { UserContext } from "@/app/contexts/userContext";
 
-const LoginComponent = () => {
-  const { setUser } = useContext(UserContext);
-  const INITIAL_DATA: FormData = { email: "", password: "" };
-  const INITIAL_TOUCHED: FormTouched = { email: false, password: false };
+const RegisterComponent = () => {
+  const INITIAL_DATA: FormData = {
+    email: "",
+    password: "",
+    name: "",
+    address: "",
+    phone: "",
+  };
+  const INITIAL_TOUCHED: FormTouched = {
+    email: false,
+    password: false,
+    name: false,
+    address: false,
+    phone: false,
+  };
   const [data, setData] = useState(INITIAL_DATA);
   const [touched, setTouched] = useState(INITIAL_TOUCHED);
   const router = useRouter();
@@ -26,11 +36,10 @@ const LoginComponent = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await userLogin(data);
+    const res = await userRegister(data);
     if (!res.message) {
-      alert("Sign In Successful");
-      setUser(res);
-      router.push("/");
+      alert("Sign Up Successful");
+      router.push("/login");
     } else {
       alert(res.message);
     }
@@ -74,4 +83,4 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent;
+export default RegisterComponent;
