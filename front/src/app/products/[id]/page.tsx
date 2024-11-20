@@ -1,4 +1,4 @@
-import Card from "../../../components/Card/Card";
+import Detail from "@/components/Detail/Detail";
 import { notFound } from "next/navigation";
 import { getProduct } from "../../../services/productServices";
 
@@ -19,7 +19,7 @@ const page = async ({ params }: PageProps) => {
 
   return (
     <div>
-      <Card product={product} />
+      <Detail product={product} />
     </div>
   );
 };

@@ -4,9 +4,15 @@ import { useContext } from "react";
 import Link from "next/link";
 
 const UserWidget = () => {
-  const { user } = useContext(UserContext);
+  const { isLogged, user } = useContext(UserContext);
   return (
-    <div>{user ? user.user.name : <Link href="/login"> Log In </Link>}</div>
+    <div>
+      {isLogged() ? (
+        <Link href="/dashboard"> {user?.user.name} </Link>
+      ) : (
+        <Link href="/login"> Log In </Link>
+      )}
+    </div>
   );
 };
 

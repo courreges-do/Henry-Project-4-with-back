@@ -3,7 +3,7 @@ import { Nunito, Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import UserProvider from "./contexts/userContext";
+import Contexts from "./contexts";
 
 const primaryFont = Nunito({
   subsets: ["latin"],
@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <UserProvider>
+    <Contexts>
       <html lang="en">
         <body
           className={`${primaryFont.variable} ${secondaryFont.variable} antialiased`}
@@ -40,6 +40,6 @@ export default function RootLayout({
           </div>
         </body>
       </html>
-    </UserProvider>
+    </Contexts>
   );
 }
