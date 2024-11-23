@@ -1,3 +1,5 @@
+import { Order } from "./orders";
+
 export interface UserLogin {
   email: string;
   password: string;
@@ -22,7 +24,7 @@ interface UserData {
   phone: string;
   role: string;
   credential: Credential;
-  orders: number[];
+  orders: Order[];
 }
 
 interface Credential {

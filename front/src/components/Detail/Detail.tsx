@@ -13,12 +13,12 @@ interface DetailProps {
 const Detail = ({ product }: DetailProps) => {
   const { isLogged } = useContext(UserContext);
   const { cart, setCart } = useContext(cartContext);
-  const isInCart = cart.some((p) => p === product.id);
+  const isInCart = cart.some((p) => p.id === product.id);
   const router = useRouter();
   const handleBuy = () => {
     if (isLogged()) {
       alert("Product added");
-      setCart([...cart, product.id]);
+      setCart([...cart, product]);
     } else {
       alert("You must sign in first");
       router.push("/login");
