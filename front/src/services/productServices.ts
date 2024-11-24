@@ -2,7 +2,9 @@ import { productsMock } from "../mocks/products";
 import { Product } from "@/interfaces/products";
 
 const apiURL = process.env.API_URL || "http://localhost:3001";
-const fallbackMockEnabled = Boolean(process.env.FALLBACK_MOCK) || false;
+const fallbackMockEnabled = process.env.FALLBACK_MOCK
+  ? process.env.FALLBACK_MOCK === "true"
+  : false;
 
 export const getProducts = async (): Promise<Product[]> => {
   const res = await fetch(`${apiURL}/products`, { cache: "no-store" })
