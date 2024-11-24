@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { Product } from "../../interfaces/products";
 import { UserContext } from "@/app/contexts/userContext";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { cartContext } from "@/app/contexts/cartContext";
 import Link from "next/link";
 
