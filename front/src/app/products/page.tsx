@@ -7,8 +7,8 @@ const page = async () => {
   return (
     <div>
       <Grid>
-        {products.map((featuredProduct, i) => (
-          <Card key={i} product={featuredProduct} />
+        {products.map((product, i) => (
+          <Card key={i} product={product} />
         ))}
       </Grid>
     </div>

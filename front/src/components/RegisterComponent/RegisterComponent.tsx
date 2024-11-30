@@ -77,7 +77,7 @@ const RegisterComponent = () => {
           .includes(false)}
         className="mt-4 bg-quaternary text-white p-2 rounded hover:bg-tertiary w-1/2 self-center"
       >
-        Login
+        Register
       </button>
     </form>
   );

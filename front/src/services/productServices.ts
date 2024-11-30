@@ -25,6 +25,5 @@ export const getProduct = async (id: number): Promise<Product> => {
 export const getFeaturedProducts = async (): Promise<Product[]> => {
   const products = await getProducts();
   const res = products.slice(0, 3);
-
   return res;
 };

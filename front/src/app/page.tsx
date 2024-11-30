@@ -2,7 +2,7 @@ import Card from "../components/Card/Card";
 import Grid from "../components/Grid/Grid";
 import { getFeaturedProducts } from "@/services/productServices";
 
-const page = async () => {
+const Home = async () => {
   const featuredProducts = await getFeaturedProducts();
   return (
     <div>
@@ -16,4 +16,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Home;

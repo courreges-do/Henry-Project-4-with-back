@@ -1,5 +1,4 @@
 "use client";
-
 import { useContext } from "react";
 import { cartContext } from "../contexts/cartContext";
 import { buyOrder } from "@/services/ordersServices";
@@ -40,7 +39,7 @@ const Page = () => {
           <h3> Price: {product.price} </h3>
         </div>
       ))}
-      <button onClick={handleCart}>{`Order (total ${totalOrder})`}</button>
+      <button onClick={handleCart}>{`Buy Order (total ${totalOrder})`}</button>
     </div>
   );
 };

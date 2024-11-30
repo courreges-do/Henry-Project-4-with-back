@@ -35,7 +35,7 @@ const Detail = ({ product }: DetailProps) => {
           Add to cart
         </button>
       ) : (
-        <Link className="border-2 border-quaternary" href="cart">
+        <Link className="border-2 border-quaternary" href="/cart">
           Buy
         </Link>
       )}

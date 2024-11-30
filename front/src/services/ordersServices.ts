@@ -10,8 +10,8 @@ export const buyOrder = async (cart: Product[], user: User) => {
   };
   const res = await fetch(`${apiURL}/orders`, {
     method: "POST",
-    body: JSON.stringify({ data }),
+    body: JSON.stringify(data),
     headers: { "Content-Type": "application/json", Authorization: user.token },
   });
-  return res.json();
+  return await res.json();
 };

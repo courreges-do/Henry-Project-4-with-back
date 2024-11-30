@@ -5,6 +5,7 @@ import { FormData, FormTouched } from "@/interfaces/forms";
 import { useRouter } from "next/navigation";
 import { userLogin } from "@/services/userServices";
 import { UserContext } from "@/app/contexts/userContext";
+import Link from "next/link";
 
 const LoginComponent = () => {
   const { setUser } = useContext(UserContext);
@@ -70,6 +71,14 @@ const LoginComponent = () => {
       >
         Login
       </button>
+      <div className="mt-4 text-center">
+        <p>Not registered yet?</p>
+        <Link href="/register">
+          <button className="bg-quaternary text-white p-2 rounded hover:bg-tertiary">
+            Register
+          </button>
+        </Link>
+      </div>
     </form>
   );
 };

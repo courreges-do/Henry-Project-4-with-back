@@ -21,7 +21,7 @@ export const isValid = (validation: string, value: string) => {
   if (validation === "phone") {
     return (
       validator.isNumeric(value) &&
-      validator.isLength(value, { min: 9, max: 13 })
+      validator.isLength(value, { min: 8, max: 13 })
     );
   }
   return false;
