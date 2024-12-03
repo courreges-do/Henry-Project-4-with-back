@@ -2,7 +2,7 @@ import Card from "../../components/Card/Card";
 import { getProducts } from "../../services/productServices";
 import Grid from "../../components/Grid/Grid";
 
-const page = async () => {
+const ProductsListPage = async () => {
   const products = await getProducts();
   return (
     <div>
@@ -15,4 +15,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default ProductsListPage;

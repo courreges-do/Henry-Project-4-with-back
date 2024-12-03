@@ -33,6 +33,12 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
   }, [user]);
 
   useEffect(() => {
+    if (user === null) {
+      router.push("/login");
+    }
+  }, [user, router]);
+
+  useEffect(() => {
     const localUser = localStorage.getItem("user");
     setUser(localUser ? JSON.parse(localUser) : null);
   }, []);
@@ -56,7 +62,6 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
     setUser(null);
     localStorage.removeItem("user");
     clearCart();
-    router.push("/login");
   };
 
   return (

@@ -4,7 +4,7 @@ import { getProduct } from "../../../services/productServices";
 
 type Params = Promise<{ id: string }>;
 
-const page = async ({ params }: { params: Params }) => {
+const ProductDetailPage = async ({ params }: { params: Params }) => {
   const { id } = await params;
 
   const product = await getProduct(parseInt(id));
@@ -20,4 +20,4 @@ const page = async ({ params }: { params: Params }) => {
   );
 };
 
-export default page;
+export default ProductDetailPage;

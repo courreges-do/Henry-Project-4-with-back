@@ -46,14 +46,14 @@ const Detail = ({ product }: DetailProps) => {
             className="bg-quaternary text-white py-2 px-4 rounded-lg hover:bg-tertiary transition-colors"
             onClick={handleBuy}
           >
-            Add to cart
+            ADD TO CART
           </button>
         ) : (
           <Link
             className="bg-quaternary text-white py-2 px-4 rounded-lg hover:bg-tertiary transition-colors"
             href="/cart"
           >
-            Buy
+            CHECKOUT
           </Link>
         )}
       </div>

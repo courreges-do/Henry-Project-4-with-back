@@ -1,6 +1,6 @@
 import LoginComponent from "@/components/LoginComponent/LoginComponent";
 
-const page = () => {
+const LoginPage = () => {
   return (
     <div className="mb-8">
       <header className="h-16 bg-secondary m-4 rounded-lg flex justify-center items-center">
@@ -11,4 +11,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default LoginPage;

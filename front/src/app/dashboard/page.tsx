@@ -1,32 +1,12 @@
-"use client";
+import OrdersComponent from "@/components/OrdersComponent/OrdersComponent";
 
-import { useContext } from "react";
-import { UserContext } from "../../contexts/userContext";
-import { notFound } from "next/navigation";
-import { Order } from "@/interfaces/orders";
-
-const Dashboard = () => {
-  const { user } = useContext(UserContext);
-  if (!user) {
-    notFound();
-  }
-  const { name, email, orders } = user.user;
-
+const DashboardPage = () => {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <h4>Name: {name} </h4>
-      <h4>Email: {email} </h4>
-      <h4>Orders:</h4>
-      {orders.map((order: Order, i) => (
-        <div className="flex w-full gap-2" key={i}>
-          <p> {order.id} </p>
-          <p> {order.date} </p>
-          <p> {order.status} </p>
-        </div>
-      ))}
+    <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-4 mb-4">
+      <h1 className="text-2xl font-bold text-gray-800 mb-4">Dashboard</h1>
+      <OrdersComponent />
     </div>
   );
 };
 
-export default Dashboard;
+export default DashboardPage;

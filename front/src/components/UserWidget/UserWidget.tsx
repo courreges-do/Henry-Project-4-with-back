@@ -14,15 +14,13 @@ const UserWidget = () => {
           href="/"
           className="text-sm font-medium text-secondary hover:text-tertiary transition-colors"
         >
-          {" "}
-          Home{" "}
+          Home
         </Link>
         <Link
           href="/products"
           className="text-sm font-medium text-secondary hover:text-tertiary transition-colors"
         >
-          {" "}
-          Products{" "}
+          Products
         </Link>
         {isLogged() ? (
           <div className="flex items-center gap-4">
@@ -33,7 +31,7 @@ const UserWidget = () => {
               Dashboard
             </Link>
             <Link
-              href=""
+              href="/profile"
               className="text-sm font-medium text-secondary hover:text-tertiary transition-colors"
             >
               {user?.user.name}
@@ -56,8 +54,7 @@ const UserWidget = () => {
             href="/login"
             className="text-sm font-medium text-secondary hover:text-tertiary transition-colors"
           >
-            {" "}
-            Log In{" "}
+            Log In
           </Link>
         )}
       </div>
