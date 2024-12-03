@@ -22,6 +22,7 @@ const Card = ({ product }: CardProps) => {
             height={150}
             style={{ width: "fit-content", height: "fit-content" }}
             className="object-contain"
+            priority
           />
         </div>
         <p className="text-lg font-bold mt-6 text-gray-800">
