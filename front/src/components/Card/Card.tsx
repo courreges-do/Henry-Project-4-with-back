@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Product } from "../../interfaces/products";
 
 interface CardProps {
@@ -8,9 +9,22 @@ interface CardProps {
 const Card = ({ product }: CardProps) => {
   return (
     <Link href={`products/${product.id}`}>
-      <article className="bg-secondary w-full h-20 transition ease-in-out delay-150 hover:scale-105">
-        <h4> {product.name} </h4>
-        <h3> $ {product.price} </h3>
+      <article className="bg-secondary h-[450px] text-primary rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-tertiary p-4">
+        <h4 className="text-xl font-semibold text-gray-800">{product.name}</h4>
+        <p className="text-sm text-gray-900 flex-1"> {product.description} </p>
+        <div className="flex justify-center items-center mb-4">
+          <Image
+            src={product.image}
+            alt="Product Image"
+            width={250}
+            height={150}
+            style={{ width: "fit-content", height: "fit-content" }}
+            className="object-contain"
+          />
+        </div>
+        <p className="text-lg font-bold mt-4 text-gray-800">
+          $ {product.price}
+        </p>
       </article>
     </Link>
   );

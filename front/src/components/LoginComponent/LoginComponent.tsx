@@ -4,7 +4,7 @@ import { isValid } from "@/helpers/validations";
 import { FormData, FormTouched } from "@/interfaces/forms";
 import { useRouter } from "next/navigation";
 import { userLogin } from "@/services/userServices";
-import { UserContext } from "@/app/contexts/userContext";
+import { UserContext } from "@/contexts/userContext";
 import Link from "next/link";
 
 const LoginComponent = () => {
@@ -43,22 +43,26 @@ const LoginComponent = () => {
 
   return (
     <form
-      className="w-full max-w-md mx-auto flex flex-col gap-4 m-4"
+      className="w-full max-w-md mx-auto flex flex-col gap-6 bg-white p-6 rounded-lg shadow-md mb-2"
       onSubmit={(e) => handleSubmit(e)}
     >
       {Object.keys(data).map((input, i) => (
-        <div key={i} className="flex items-center gap-x-4">
-          <label className="w-1/3 text-right">{input}</label>
+        <div key={i} className="flex flex-col gap-1">
+          <label className="text-sm font-medium text-gray-600 capitalize">
+            {input}
+          </label>
           <input
             type={input}
             key={i}
             value={data[input]}
             onChange={(e) => handleChange(e, input)}
             onBlur={() => handleBlur(input)}
-            className="w-2/3 p-2 border border-gray-300 rounded"
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-quaternary"
           />
           {isTouched(input) && !isValid(input, data[input]) && (
-            <p className="text-red-500">Error</p>
+            <p className="text-xs text-red-500 mt-1">
+              Please enter a valid {input}.
+            </p>
           )}
         </div>
       ))}
@@ -67,14 +71,14 @@ const LoginComponent = () => {
         disabled={Object.keys(data)
           .map((i) => isValid(i, data[i]))
           .includes(false)}
-        className="mt-4 bg-quaternary text-white p-2 rounded hover:bg-tertiary w-1/2 self-center"
+        className="mt-1 bg-quaternary text-white py-2 rounded-lg hover:bg-tertiary transition-colors"
       >
         Login
       </button>
-      <div className="mt-4 text-center">
-        <p>Not registered yet?</p>
+      <div className="mt-1 text-center">
+        <p className="text-sm text-gray-600">Not registered yet?</p>
         <Link href="/register">
-          <button className="bg-quaternary text-white p-2 rounded hover:bg-tertiary">
+          <button className="mt-2 bg-quaternary text-white py-2 px-4 rounded-lg hover:bg-tertiary transition-colors">
             Register
           </button>
         </Link>

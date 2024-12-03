@@ -1,13 +1,15 @@
 "use client";
 import { useContext } from "react";
-import { cartContext } from "../contexts/cartContext";
+import { cartContext } from "../../contexts/cartContext";
 import { buyOrder } from "@/services/ordersServices";
-import { UserContext } from "../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import { notFound } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
   const { cart, clearCart } = useContext(cartContext);
   const { user, updateOrders } = useContext(UserContext);
+  const router = useRouter();
   if (!user) {
     return notFound();
   }
@@ -17,6 +19,7 @@ const Page = () => {
       clearCart();
       updateOrders({ status: res.status, id: res.id, date: res.date });
       alert("Order complete");
+      router.push("/dashboard");
     } else {
       alert(res.message);
     }
@@ -28,7 +31,7 @@ const Page = () => {
     initialOrder
   );
 
-  if (cart.length === 0) return <h2>Cart is empty</h2>;
+  if (cart.length === 0) return <h2>Your cart is currently empty</h2>;
 
   return (
     <div>

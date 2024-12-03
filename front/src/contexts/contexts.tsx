@@ -1,6 +1,6 @@
 "use client";
-import CartProvider from "./contexts/cartContext";
-import UserProvider from "./contexts/userContext";
+import CartProvider from "./cartContext";
+import UserProvider from "./userContext";
 
 const Contexts = ({ children }: { children: React.ReactNode }) => {
   return (

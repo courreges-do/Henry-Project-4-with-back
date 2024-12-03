@@ -51,22 +51,26 @@ const RegisterComponent = () => {
 
   return (
     <form
-      className="w-full max-w-md mx-auto flex flex-col gap-4 m-4"
+      className="w-full max-w-md mx-auto flex flex-col gap-3 bg-white p-4 rounded-lg shadow-md"
       onSubmit={(e) => handleSubmit(e)}
     >
       {Object.keys(data).map((input, i) => (
-        <div key={i} className="flex items-center gap-x-4">
-          <label className="w-1/3 text-right">{input}</label>
+        <div key={i} className="flex flex-col">
+          <label className="text-sm font-medium text-gray-600 capitalize">
+            {input}
+          </label>
           <input
             type={input}
             key={i}
             value={data[input]}
             onChange={(e) => handleChange(e, input)}
             onBlur={() => handleBlur(input)}
-            className="w-2/3 p-2 border border-gray-300 rounded"
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-quaternary"
           />
           {isTouched(input) && !isValid(input, data[input]) && (
-            <p className="text-red-500">Error</p>
+            <p className="text-xs text-red-500 mt-1">
+              Please enter a valid {input}.
+            </p>
           )}
         </div>
       ))}
@@ -75,7 +79,7 @@ const RegisterComponent = () => {
         disabled={Object.keys(data)
           .map((i) => isValid(i, data[i]))
           .includes(false)}
-        className="mt-4 bg-quaternary text-white p-2 rounded hover:bg-tertiary w-1/2 self-center"
+        className="mt-2 bg-quaternary text-white py-2 rounded-lg hover:bg-tertiary transition-colors"
       >
         Register
       </button>

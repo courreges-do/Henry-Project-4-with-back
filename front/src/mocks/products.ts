@@ -17,7 +17,7 @@ export const productsMock: Product[] = [
     name: "MOCK MacBook Air",
     price: 999,
     description:
-      "Embrace efficiency and sophistication with the MacBook Air: lightweight design meets powerful performance, stunning Retina display brings your work to life, and all-day battery life keeps you productive wherever you go. Elevate your computing experience with the MacBook Air.",
+      "Embrace efficiency and sophistication with the MacBook Air: lightweight design meets powerful performance, stunning Retina display and all-day battery life keeps you productive wherever you go. Elevate your computing experience with the MacBook Air.",
     image:
       "https://www.tandilphone.com.ar/topstore/contenido/productos/original/1704425318.jpeg",
     categoryId: 2,

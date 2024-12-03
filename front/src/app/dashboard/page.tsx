@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext } from "react";
-import { UserContext } from "../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import { notFound } from "next/navigation";
 import { Order } from "@/interfaces/orders";
 

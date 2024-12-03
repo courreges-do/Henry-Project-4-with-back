@@ -3,7 +3,7 @@ import { Nunito, Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import Contexts from "./contexts";
+import Contexts from "../contexts/contexts";
 
 const primaryFont = Nunito({
   subsets: ["latin"],
@@ -18,8 +18,8 @@ const secondaryFont = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Vintage Furniture, Lighting & Art",
-  description: "Style your home",
+  title: "NV Tech Store",
+  description: "Discover innovation",
 };
 
 export default function RootLayout({
