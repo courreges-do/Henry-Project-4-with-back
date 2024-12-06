@@ -38,6 +38,12 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
       user === null &&
       pathname !== "/" &&
       pathname !== "/products" &&
+      pathname !== "/products/1" &&
+      pathname !== "/products/2" &&
+      pathname !== "/products/3" &&
+      pathname !== "/products/4" &&
+      pathname !== "/products/5" &&
+      pathname !== "/products/6" &&
       pathname !== "/register"
     ) {
       router.push("/login");
@@ -46,7 +52,9 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const localUser = localStorage.getItem("user");
-    setUser(localUser ? JSON.parse(localUser) : null);
+    if (localUser && localUser !== JSON.stringify(user)) {
+      setUser(JSON.parse(localUser));
+    }
   }, []);
 
   const isLogged = () => {
