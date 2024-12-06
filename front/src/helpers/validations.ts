@@ -12,11 +12,12 @@ export const isValid = (validation: string, value: string) => {
   }
   if (validation === "name") {
     return (
-      validator.isAlpha(value) && validator.isLength(value, { min: 4, max: 13 })
+      validator.isAlpha(value.replace(/\s/g, "")) &&
+      validator.isLength(value, { min: 4, max: 25 })
     );
   }
   if (validation === "address") {
-    return validator.isAlphanumeric(value);
+    return validator.isAlphanumeric(value.replace(/\s/g, ""));
   }
   if (validation === "phone") {
     return (

@@ -3,7 +3,7 @@ import { User } from "@/interfaces/user";
 import { useState, createContext, useEffect, useContext } from "react";
 import { Order } from "@/interfaces/orders";
 import { cartContext } from "./cartContext";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 interface UserContextProps {
   user: User | null;
@@ -25,6 +25,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const { clearCart } = useContext(cartContext);
   const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (user) {
@@ -33,10 +34,15 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
   }, [user]);
 
   useEffect(() => {
-    if (user === null) {
+    if (
+      user === null &&
+      pathname !== "/" &&
+      pathname !== "/products" &&
+      pathname !== "/register"
+    ) {
       router.push("/login");
     }
-  }, [user, router]);
+  }, [user, pathname, router]);
 
   useEffect(() => {
     const localUser = localStorage.getItem("user");

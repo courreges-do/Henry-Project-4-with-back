@@ -41,7 +41,7 @@ export const productsMock: Product[] = [
     description:
       "Stay connected and healthy with the Apple Watch Series 6: track your workouts, monitor your health, and stay in touch with the people and information you care about most. Experience the future of health and wellness with the Apple Watch Series 6.",
     image:
-      "https://http2.mlstatic.com/D_NQ_NP_899243-MLA46335831583_062021-O.webp",
+      "https://www.tandilphone.com.ar/topstore/contenido/productos/original/1704412663.jpeg",
     categoryId: 4,
     stock: 10,
   },
@@ -63,7 +63,7 @@ export const productsMock: Product[] = [
     description:
       "Elevate your home audio experience with the HomePod mini: immersive sound, intelligent assistant, and smart home hub make the HomePod mini the perfect addition to your home. Enjoy a world of music, news, and more with the HomePod mini.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlx3p4A-4rur0wUdDK0TphV4PPpu7ysUzfGQ&s",
+      "https://www.tandilphone.com.ar/topstore/contenido/productos/original/1705000453.jpeg",
     categoryId: 6,
     stock: 10,
   },

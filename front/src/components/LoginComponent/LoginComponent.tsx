@@ -43,7 +43,7 @@ const LoginComponent = () => {
 
   return (
     <form
-      className="w-full max-w-md mx-auto flex flex-col gap-6 bg-white p-6 rounded-lg shadow-md mb-2"
+      className="w-full max-w-md mx-auto h-[320px] flex flex-col gap-6 bg-white p-6 rounded-lg shadow-md mb-2"
       onSubmit={(e) => handleSubmit(e)}
     >
       {Object.keys(data).map((input, i) => (
@@ -75,10 +75,10 @@ const LoginComponent = () => {
       >
         Login
       </button>
-      <div className="mt-1 text-center">
+      <div className="text-center flex items-center justify-center gap-2">
         <p className="text-sm text-gray-600">Not registered yet?</p>
         <Link href="/register">
-          <button className="mt-2 bg-quaternary text-white py-2 px-4 rounded-lg hover:bg-tertiary transition-colors">
+          <button className="bg-quaternary text-white py-2 px-4 rounded-lg hover:bg-tertiary transition-colors">
             Register
           </button>
         </Link>

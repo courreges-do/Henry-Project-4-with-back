@@ -34,7 +34,7 @@ const UserWidget = () => {
               href="/profile"
               className="text-sm font-medium text-secondary hover:text-tertiary transition-colors"
             >
-              {user?.user.name}
+              Profile of {user?.user.name}
             </Link>
             <Link
               href="/cart"
