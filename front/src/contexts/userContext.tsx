@@ -3,7 +3,6 @@ import { User } from "@/interfaces/user";
 import { useState, createContext, useEffect, useContext } from "react";
 import { Order } from "@/interfaces/orders";
 import { cartContext } from "./cartContext";
-import { useRouter, usePathname } from "next/navigation";
 
 interface UserContextProps {
   user: User | null;
@@ -24,8 +23,6 @@ export const UserContext = createContext<UserContextProps>({
 const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const { clearCart } = useContext(cartContext);
   const [user, setUser] = useState<User | null>(null);
-  const router = useRouter();
-  const pathname = usePathname();
 
   useEffect(() => {
     if (user) {
@@ -34,27 +31,8 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
   }, [user]);
 
   useEffect(() => {
-    if (
-      user === null &&
-      pathname !== "/" &&
-      pathname !== "/products" &&
-      pathname !== "/products/1" &&
-      pathname !== "/products/2" &&
-      pathname !== "/products/3" &&
-      pathname !== "/products/4" &&
-      pathname !== "/products/5" &&
-      pathname !== "/products/6" &&
-      pathname !== "/register"
-    ) {
-      router.push("/login");
-    }
-  }, [user, pathname, router]);
-
-  useEffect(() => {
     const localUser = localStorage.getItem("user");
-    if (localUser && localUser !== JSON.stringify(user)) {
-      setUser(JSON.parse(localUser));
-    }
+    setUser(localUser ? JSON.parse(localUser) : null);
   }, []);
 
   const isLogged = () => {
@@ -76,6 +54,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
     setUser(null);
     localStorage.removeItem("user");
     clearCart();
+    window.location.href = "/";
   };
 
   return (
